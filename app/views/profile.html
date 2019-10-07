@@ -15,7 +15,7 @@
 {% if user.username == session_user.username %}
 <div class="payment-form">
   <h3 class="payment-header">Make payment?</h3>
-  <form action="/pay?recipient=attacker&Amount=10" method="post">
+  <form action="/pay?recipient=attacker&amount=10" method="post">
     <div class="form-group">
       <div class="form-label">To:</div>
       <div class="form-input"><input type = "text"/></div>
