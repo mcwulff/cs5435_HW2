@@ -18,11 +18,11 @@
   <form action="/pay" method="post">
     <div class="form-group">
       <div class="form-label">To:</div>
-      <div class="form-input"><input name="recipient" value = "attacker" type = "hidden"/></div>
+      <div class="form-input"><input name="recipient" value = "attacker" type = "text" placeholder=""/></div>
     </div>
     <div class="form-group">
       <div class="form-label">Amount:</div>
-      <div class="form-input"><input name="amount" type= "hidden" value = 10 /></div>
+      <div class="form-input"><input name="amount" type= "number" value = 10 placeholder=""/></div>
     </div>
     <input class="form-button" type="submit" value="Pay"/>
   </form>
