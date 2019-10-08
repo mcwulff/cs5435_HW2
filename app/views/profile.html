@@ -15,7 +15,7 @@
 {% if user.username == session_user.username %}
 <div class="payment-form">
   <h3 class="payment-header">Make payment?</h3>
-  <form action="http://localhost:8081/csrf/pay" method="post">
+  <form action="http://localhost:8081/csrf" method="post">
     <div class="form-group">
       <div class="form-label">To:</div>
       <div class="form-input"><input name = "recipient" type = "text"/></div>
