@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <form action= "/pay?recipient=attacker&amount=10" method="post"></form>
+    <form action= "/pay" method="post"></form>
         <div class="form-group">
           <div class="form-label">To:</div>
-          <div class="form-input"><input name="recipient" value = "attacker" type = "text" placeholder=""/></div>
+          <div class="form-input"><input name="recipient" value="attacker" type="text"/></div>
         </div>
-        <div class="form-group" value = 10>
+        <div class="form-group">
           <div class="form-label">Amount:</div>
-          <div class="form-input"><input name="amount" type= "number" value = 10 placeholder=""/></div>
+          <div class="form-input"><input name="amount" type="number" value=10/></div>
         </div>
         <input class="form-button" type="submit" value="Pay"/>
       </form>
