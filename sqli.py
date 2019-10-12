@@ -23,7 +23,7 @@ def submit_pay_form(sess, recipient, amount):
 def sqli_attack(username):
     sess = Session()
     assert(submit_login_form(sess, "attacker", "attacker"))
-    pass
+    assert(submit_pay_form(sess,  )
 
 def main():
     sqli_attack("admin")

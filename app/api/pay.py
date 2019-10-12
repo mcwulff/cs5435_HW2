@@ -18,6 +18,7 @@ from app.models.session import (
 @logged_in
 def do_payment(db, session):
     sender = get_user(db, session.get_username())
+    print(session.get_id())
     recipient = db.execute(
         "SELECT * FROM users WHERE users.username='{}' LIMIT 1 OFFSET 0".format(
             request.forms.get('recipient')
