@@ -18,6 +18,7 @@ from app.models.session import (
 @logged_in
 def do_payment(db, session):
     print("this is the session Id: " + session.get_id());
+    #print("this is the id of the person making the req" + request.forms.get('csrf-id'))
     sender = get_user(db, session.get_username())
     recipient = db.execute(
         "SELECT * FROM users WHERE users.username='{}' LIMIT 1 OFFSET 0".format(
@@ -26,7 +27,10 @@ def do_payment(db, session):
     ).fetchone()
     payment_amount = int(request.forms.get('amount'))
     error = None
-    if (sender.get_coins() < payment_amount):
+    if (session.get_id() != request.forms.get('csrf-id')):
+        response.status = 400
+        error = "Seperate entity trying to make a request on behalf of user" 
+    elif (sender.get_coins() < payment_amount):
         response.status = 400
         error = "Not enough funds."
     elif (payment_amount < 0):
