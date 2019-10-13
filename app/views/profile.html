@@ -20,10 +20,11 @@
       <div class="form-label">To:</div>
       <div class="form-input"><input name = "recipient" type = "text"/></div>
     </div>
-    <div class="form-group" value = >
+    <div class="form-group">
       <div class="form-label">Amount:</div>
       <div class="form-input"><input name="amount" type= "number"/></div>
     </div>
+    <input id="csrf-id" type="hidden" name="csrf-id"/>
     <input class="form-button" type="submit" value="Pay"/>
   </form>
 
@@ -32,6 +33,27 @@
   {% endif %}
 </div>
 
+<script>
+	function getCookie(cname) {
+	  var name = cname + "=";
+	  var decodedCookie = decodeURIComponent(document.cookie);
+	  var ca = decodedCookie.split(';');
+	  for(var i = 0; i <ca.length; i++) {
+	    var c = ca[i];
+	    while (c.charAt(0) == ' ') {
+	      c = c.substring(1);
+	    }
+	    if (c.indexOf(name) == 0) {
+			document.getElementById('csrf-id').value = c.substring(name.length, c.length);
+        	return;
+	    }
+	  }
+	  document.getElementById('csrf-id').value = "";
+     	  return;                            
+	}	
+	window.onload = getCookie('session');
+
+</script>	
 <div class="aboutme-form">
   <h3 class="aboutme-header">Update profile?</h3>
   <form action="/aboutme" method="post">
