@@ -21,9 +21,10 @@ def submit_pay_form(sess, recipient, amount):
     return response.status_code == codes.ok
 
 def sqli_attack(username):
+    strng = username + ""
     sess = Session()
     assert(submit_login_form(sess, "attacker", "attacker"))
-    assert(submit_pay_form(sess, "admin", 10))
+    assert(submit_pay_form(sess, strng, 10))
 
 
 def main():
