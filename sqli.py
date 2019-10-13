@@ -36,7 +36,7 @@ def sqli_attack(username):
             i = 0
         i += 1
     
-    pw.slice(0,-1)
+    pw = pw[0:-1]
     print("Password is: " +pw)
     return(pw)
 
