@@ -19,6 +19,7 @@ def submit_pay_form(sess, recipient, amount):
                         "recipient": recipient,
                         "amount": amount,
                     })
+    print("Response Status:" + response.status_code)                
     return response.status_code == codes.ok
 
 def sqli_attack(username):
