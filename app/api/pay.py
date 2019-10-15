@@ -29,6 +29,7 @@ def do_payment(db, session):
     if (session.get_id() != request.forms.get('csrf-id')):
         response.status = 400
         error = "Seperate entity trying to make a request on behalf of user" 
+        print("In Here")
     elif (sender.get_coins() < payment_amount):
         response.status = 400
         error = "Not enough funds."
