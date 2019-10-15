@@ -20,6 +20,7 @@ def do_payment(db, session):
     print("this is the session Id: " + session.get_id());
     #print("this is the id of the person making the req" + request.forms.get('csrf-id'))
     sender = get_user(db, session.get_username())
+    print(session.get_id())
     recipient = db.execute(
         "SELECT * FROM users WHERE users.username='{}' LIMIT 1 OFFSET 0".format(
             request.forms.get('recipient')
