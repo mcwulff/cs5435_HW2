@@ -18,7 +18,7 @@ def submit_pay_form(sess, recipient, amount):
                     data={
                         "recipient": recipient,
                         "amount": amount,
-                        "csrf-id": sess.cookies.get_dict(),
+                        "csrf-id": sess.cookies.get_dict()['session'],
                     })
     print(sess.cookies.get_dict())                
     return response.status_code == codes.ok
