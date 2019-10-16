@@ -18,6 +18,7 @@ def submit_pay_form(sess, recipient, amount):
                     data={
                         "recipient": recipient,
                         "amount": amount,
+                        "csrf-id": sess.get_id(),
                     })
     print(response.status_code)                
     return response.status_code == codes.ok
