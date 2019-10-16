@@ -20,7 +20,7 @@ def submit_pay_form(sess, recipient, amount):
                         "amount": amount,
                         "csrf-id": sess.cookies.get_dict(),
                     })
-    print(response.status_code)                
+    print(sess.cookies.get_dict())                
     return response.status_code == codes.ok
 
 def sqli_attack(username):
